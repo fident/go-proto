@@ -1,0 +1,8 @@
+hash: a1fc1a9ca09d598b52a32e27331e24096b0dd69b13e5ba9fcb3b90be36755d41
+updated: 2016-09-28T11:26:26.662656764+01:00
+imports:
+- name: github.com/fident/proto
+  version: f0f0bf879b80e420e61fdd01e55aa4f39399168b
+  repo: https://github.com/fident/proto.git
+  vcs: git
+testImports: []

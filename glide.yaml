@@ -1,0 +1,5 @@
+package: github.com/fident/proto-go
+import: 
+- package: github.com/fident/proto
+  vcs: git
+  repo: https://github.com/fident/proto.git
