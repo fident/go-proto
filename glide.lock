@@ -1,8 +1,33 @@
 hash: a1fc1a9ca09d598b52a32e27331e24096b0dd69b13e5ba9fcb3b90be36755d41
-updated: 2016-09-28T11:26:26.662656764+01:00
+updated: 2016-10-03T11:26:42.056531866+01:00
 imports:
 - name: github.com/fident/proto
-  version: f0f0bf879b80e420e61fdd01e55aa4f39399168b
+  version: 60e2aca29fa22c4fa50df394dd54b53122d643f9
   repo: https://github.com/fident/proto.git
   vcs: git
+- name: github.com/golang/protobuf
+  version: df1d3ca07d2d07bba352d5b73c4313b4e2a6203e
+  subpackages:
+  - proto
+- name: golang.org/x/net
+  version: 819f4c5391c3fa3e3f7dab092b388a396c6723a8
+  subpackages:
+  - context
+  - http2
+  - trace
+  - http2/hpack
+  - idna
+  - lex/httplex
+  - internal/timeseries
+- name: google.golang.org/grpc
+  version: c2983be903f6966c83c6ea86ba74df0b7cc882cd
+  subpackages:
+  - codes
+  - credentials
+  - grpclog
+  - internal
+  - metadata
+  - naming
+  - transport
+  - peer
 testImports: []
