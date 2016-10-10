@@ -1,8 +1,8 @@
 hash: a1fc1a9ca09d598b52a32e27331e24096b0dd69b13e5ba9fcb3b90be36755d41
-updated: 2016-10-10T15:17:24.098477207+01:00
+updated: 2016-10-10T15:26:38.823005955+01:00
 imports:
 - name: github.com/fident/proto
-  version: 6225b6966da2cd3a6bb475e4b234a5712ad15906
+  version: 100bab75668b91b70e8a6f001177ea46b907a520
   repo: https://github.com/fident/proto.git
   vcs: git
 - name: github.com/golang/protobuf
