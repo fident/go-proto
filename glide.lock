@@ -1,26 +1,33 @@
-hash: a1fc1a9ca09d598b52a32e27331e24096b0dd69b13e5ba9fcb3b90be36755d41
-updated: 2016-10-11T14:37:40.753278074+01:00
+hash: a32d5a4c44bf0e0f6337cde63a249466440d2d52151e8f6333f79ec5c223a56b
+updated: 2017-07-27T15:46:17.401125363+01:00
 imports:
-- name: github.com/fident/proto
-  version: 0637a7d9a28688d2b48e33a542d9f34d730a0355
-  repo: https://github.com/fident/proto.git
-  vcs: git
 - name: github.com/golang/protobuf
-  version: df1d3ca07d2d07bba352d5b73c4313b4e2a6203e
+  version: 748d386b5c1ea99658fd69fe9f03991ce86a90c1
   subpackages:
   - proto
+- name: github.com/LucidCube/proto-fident
+  version: f805beb115658206aa44301d5cfa807efb7cda02
+  repo: https://github.com/LucidCube/proto-fident.git
+  vcs: git
 - name: golang.org/x/net
-  version: cf4effbb9db1f3ef07f7e1891402991b6afbb276
+  version: f5079bd7f6f74e23c4d65efa0f4ce14cbd6a3c0f
   subpackages:
   - context
   - http2
-  - trace
   - http2/hpack
   - idna
-  - lex/httplex
   - internal/timeseries
+  - lex/httplex
+  - trace
+- name: golang.org/x/text
+  version: 836efe42bb4aa16aaa17b9c155d8813d336ed720
+  subpackages:
+  - secure/bidirule
+  - transform
+  - unicode/bidi
+  - unicode/norm
 - name: google.golang.org/grpc
-  version: 72d072e4c18c02bfe6c98fc661a4df74da546145
+  version: 777daa17ff9b5daef1cfdf915088a2ada3332bf0
   subpackages:
   - codes
   - credentials
@@ -28,6 +35,6 @@ imports:
   - internal
   - metadata
   - naming
-  - transport
   - peer
+  - transport
 testImports: []
