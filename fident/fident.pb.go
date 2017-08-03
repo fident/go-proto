@@ -9,14 +9,16 @@ It is generated from these files:
 	fident.proto
 
 It has these top-level messages:
-	ServiceRegistrationResult
-	ServiceRegistrationPayload
-	AuthResult
-	AuthChallengeResult
-	AuthChallengePayload
-	PerformAuthPayload
-	AuthKeyRequestPayload
-	AuthKeyResult
+	ServiceRegistrationResponse
+	ServiceRegistrationRequest
+	AuthResponse
+	AuthChallengeResponse
+	AuthChallengeRequest
+	PerformAuthRequest
+	AuthKeyRequest
+	AuthKeyResponse
+	LoginTimestampResponse
+	LoginTimestampRequest
 */
 package fident
 
@@ -40,239 +42,273 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type ServiceRegistrationResult struct {
+type ServiceRegistrationResponse struct {
 	IdentityId string `protobuf:"bytes,1,opt,name=identity_id,json=identityId" json:"identity_id,omitempty"`
 	ServiceKey string `protobuf:"bytes,2,opt,name=service_key,json=serviceKey" json:"service_key,omitempty"`
 }
 
-func (m *ServiceRegistrationResult) Reset()                    { *m = ServiceRegistrationResult{} }
-func (m *ServiceRegistrationResult) String() string            { return proto.CompactTextString(m) }
-func (*ServiceRegistrationResult) ProtoMessage()               {}
-func (*ServiceRegistrationResult) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (m *ServiceRegistrationResponse) Reset()                    { *m = ServiceRegistrationResponse{} }
+func (m *ServiceRegistrationResponse) String() string            { return proto.CompactTextString(m) }
+func (*ServiceRegistrationResponse) ProtoMessage()               {}
+func (*ServiceRegistrationResponse) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
-func (m *ServiceRegistrationResult) GetIdentityId() string {
+func (m *ServiceRegistrationResponse) GetIdentityId() string {
 	if m != nil {
 		return m.IdentityId
 	}
 	return ""
 }
 
-func (m *ServiceRegistrationResult) GetServiceKey() string {
+func (m *ServiceRegistrationResponse) GetServiceKey() string {
 	if m != nil {
 		return m.ServiceKey
 	}
 	return ""
 }
 
-type ServiceRegistrationPayload struct {
+type ServiceRegistrationRequest struct {
 	ServiceName   string `protobuf:"bytes,1,opt,name=service_name,json=serviceName" json:"service_name,omitempty"`
 	ServiceVendor string `protobuf:"bytes,2,opt,name=service_vendor,json=serviceVendor" json:"service_vendor,omitempty"`
 	SupportEmail  string `protobuf:"bytes,3,opt,name=support_email,json=supportEmail" json:"support_email,omitempty"`
 }
 
-func (m *ServiceRegistrationPayload) Reset()                    { *m = ServiceRegistrationPayload{} }
-func (m *ServiceRegistrationPayload) String() string            { return proto.CompactTextString(m) }
-func (*ServiceRegistrationPayload) ProtoMessage()               {}
-func (*ServiceRegistrationPayload) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (m *ServiceRegistrationRequest) Reset()                    { *m = ServiceRegistrationRequest{} }
+func (m *ServiceRegistrationRequest) String() string            { return proto.CompactTextString(m) }
+func (*ServiceRegistrationRequest) ProtoMessage()               {}
+func (*ServiceRegistrationRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
 
-func (m *ServiceRegistrationPayload) GetServiceName() string {
+func (m *ServiceRegistrationRequest) GetServiceName() string {
 	if m != nil {
 		return m.ServiceName
 	}
 	return ""
 }
 
-func (m *ServiceRegistrationPayload) GetServiceVendor() string {
+func (m *ServiceRegistrationRequest) GetServiceVendor() string {
 	if m != nil {
 		return m.ServiceVendor
 	}
 	return ""
 }
 
-func (m *ServiceRegistrationPayload) GetSupportEmail() string {
+func (m *ServiceRegistrationRequest) GetSupportEmail() string {
 	if m != nil {
 		return m.SupportEmail
 	}
 	return ""
 }
 
-type AuthResult struct {
+type AuthResponse struct {
 	Token string `protobuf:"bytes,1,opt,name=token" json:"token,omitempty"`
 }
 
-func (m *AuthResult) Reset()                    { *m = AuthResult{} }
-func (m *AuthResult) String() string            { return proto.CompactTextString(m) }
-func (*AuthResult) ProtoMessage()               {}
-func (*AuthResult) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
+func (m *AuthResponse) Reset()                    { *m = AuthResponse{} }
+func (m *AuthResponse) String() string            { return proto.CompactTextString(m) }
+func (*AuthResponse) ProtoMessage()               {}
+func (*AuthResponse) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
 
-func (m *AuthResult) GetToken() string {
+func (m *AuthResponse) GetToken() string {
 	if m != nil {
 		return m.Token
 	}
 	return ""
 }
 
-type AuthChallengeResult struct {
+type AuthChallengeResponse struct {
 	Challenge string `protobuf:"bytes,1,opt,name=challenge" json:"challenge,omitempty"`
 }
 
-func (m *AuthChallengeResult) Reset()                    { *m = AuthChallengeResult{} }
-func (m *AuthChallengeResult) String() string            { return proto.CompactTextString(m) }
-func (*AuthChallengeResult) ProtoMessage()               {}
-func (*AuthChallengeResult) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
+func (m *AuthChallengeResponse) Reset()                    { *m = AuthChallengeResponse{} }
+func (m *AuthChallengeResponse) String() string            { return proto.CompactTextString(m) }
+func (*AuthChallengeResponse) ProtoMessage()               {}
+func (*AuthChallengeResponse) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
 
-func (m *AuthChallengeResult) GetChallenge() string {
+func (m *AuthChallengeResponse) GetChallenge() string {
 	if m != nil {
 		return m.Challenge
 	}
 	return ""
 }
 
-type AuthChallengePayload struct {
+type AuthChallengeRequest struct {
 	IdentityId string `protobuf:"bytes,1,opt,name=identity_id,json=identityId" json:"identity_id,omitempty"`
 	ProjectId  string `protobuf:"bytes,2,opt,name=project_id,json=projectId" json:"project_id,omitempty"`
 }
 
-func (m *AuthChallengePayload) Reset()                    { *m = AuthChallengePayload{} }
-func (m *AuthChallengePayload) String() string            { return proto.CompactTextString(m) }
-func (*AuthChallengePayload) ProtoMessage()               {}
-func (*AuthChallengePayload) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
+func (m *AuthChallengeRequest) Reset()                    { *m = AuthChallengeRequest{} }
+func (m *AuthChallengeRequest) String() string            { return proto.CompactTextString(m) }
+func (*AuthChallengeRequest) ProtoMessage()               {}
+func (*AuthChallengeRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{4} }
 
-func (m *AuthChallengePayload) GetIdentityId() string {
+func (m *AuthChallengeRequest) GetIdentityId() string {
 	if m != nil {
 		return m.IdentityId
 	}
 	return ""
 }
 
-func (m *AuthChallengePayload) GetProjectId() string {
+func (m *AuthChallengeRequest) GetProjectId() string {
 	if m != nil {
 		return m.ProjectId
 	}
 	return ""
 }
 
-type PerformAuthPayload struct {
+type PerformAuthRequest struct {
 	IdentityId        string `protobuf:"bytes,1,opt,name=identity_id,json=identityId" json:"identity_id,omitempty"`
 	KeyHandle         string `protobuf:"bytes,2,opt,name=key_handle,json=keyHandle" json:"key_handle,omitempty"`
 	ProjectId         string `protobuf:"bytes,3,opt,name=project_id,json=projectId" json:"project_id,omitempty"`
 	ChallengeResponse string `protobuf:"bytes,4,opt,name=challenge_response,json=challengeResponse" json:"challenge_response,omitempty"`
 }
 
-func (m *PerformAuthPayload) Reset()                    { *m = PerformAuthPayload{} }
-func (m *PerformAuthPayload) String() string            { return proto.CompactTextString(m) }
-func (*PerformAuthPayload) ProtoMessage()               {}
-func (*PerformAuthPayload) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
+func (m *PerformAuthRequest) Reset()                    { *m = PerformAuthRequest{} }
+func (m *PerformAuthRequest) String() string            { return proto.CompactTextString(m) }
+func (*PerformAuthRequest) ProtoMessage()               {}
+func (*PerformAuthRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{5} }
 
-func (m *PerformAuthPayload) GetIdentityId() string {
+func (m *PerformAuthRequest) GetIdentityId() string {
 	if m != nil {
 		return m.IdentityId
 	}
 	return ""
 }
 
-func (m *PerformAuthPayload) GetKeyHandle() string {
+func (m *PerformAuthRequest) GetKeyHandle() string {
 	if m != nil {
 		return m.KeyHandle
 	}
 	return ""
 }
 
-func (m *PerformAuthPayload) GetProjectId() string {
+func (m *PerformAuthRequest) GetProjectId() string {
 	if m != nil {
 		return m.ProjectId
 	}
 	return ""
 }
 
-func (m *PerformAuthPayload) GetChallengeResponse() string {
+func (m *PerformAuthRequest) GetChallengeResponse() string {
 	if m != nil {
 		return m.ChallengeResponse
 	}
 	return ""
 }
 
-type AuthKeyRequestPayload struct {
+type AuthKeyRequest struct {
 	Username         string `protobuf:"bytes,1,opt,name=username" json:"username,omitempty"`
 	Password         string `protobuf:"bytes,2,opt,name=password" json:"password,omitempty"`
 	UsageDescription string `protobuf:"bytes,3,opt,name=usage_description,json=usageDescription" json:"usage_description,omitempty"`
 }
 
-func (m *AuthKeyRequestPayload) Reset()                    { *m = AuthKeyRequestPayload{} }
-func (m *AuthKeyRequestPayload) String() string            { return proto.CompactTextString(m) }
-func (*AuthKeyRequestPayload) ProtoMessage()               {}
-func (*AuthKeyRequestPayload) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+func (m *AuthKeyRequest) Reset()                    { *m = AuthKeyRequest{} }
+func (m *AuthKeyRequest) String() string            { return proto.CompactTextString(m) }
+func (*AuthKeyRequest) ProtoMessage()               {}
+func (*AuthKeyRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
 
-func (m *AuthKeyRequestPayload) GetUsername() string {
+func (m *AuthKeyRequest) GetUsername() string {
 	if m != nil {
 		return m.Username
 	}
 	return ""
 }
 
-func (m *AuthKeyRequestPayload) GetPassword() string {
+func (m *AuthKeyRequest) GetPassword() string {
 	if m != nil {
 		return m.Password
 	}
 	return ""
 }
 
-func (m *AuthKeyRequestPayload) GetUsageDescription() string {
+func (m *AuthKeyRequest) GetUsageDescription() string {
 	if m != nil {
 		return m.UsageDescription
 	}
 	return ""
 }
 
-type AuthKeyResult struct {
+type AuthKeyResponse struct {
 	Username   string `protobuf:"bytes,1,opt,name=username" json:"username,omitempty"`
 	IdentityId string `protobuf:"bytes,2,opt,name=identity_id,json=identityId" json:"identity_id,omitempty"`
 	PrivateKey string `protobuf:"bytes,3,opt,name=private_key,json=privateKey" json:"private_key,omitempty"`
 	KeyHandle  string `protobuf:"bytes,4,opt,name=key_handle,json=keyHandle" json:"key_handle,omitempty"`
 }
 
-func (m *AuthKeyResult) Reset()                    { *m = AuthKeyResult{} }
-func (m *AuthKeyResult) String() string            { return proto.CompactTextString(m) }
-func (*AuthKeyResult) ProtoMessage()               {}
-func (*AuthKeyResult) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+func (m *AuthKeyResponse) Reset()                    { *m = AuthKeyResponse{} }
+func (m *AuthKeyResponse) String() string            { return proto.CompactTextString(m) }
+func (*AuthKeyResponse) ProtoMessage()               {}
+func (*AuthKeyResponse) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
 
-func (m *AuthKeyResult) GetUsername() string {
+func (m *AuthKeyResponse) GetUsername() string {
 	if m != nil {
 		return m.Username
 	}
 	return ""
 }
 
-func (m *AuthKeyResult) GetIdentityId() string {
+func (m *AuthKeyResponse) GetIdentityId() string {
 	if m != nil {
 		return m.IdentityId
 	}
 	return ""
 }
 
-func (m *AuthKeyResult) GetPrivateKey() string {
+func (m *AuthKeyResponse) GetPrivateKey() string {
 	if m != nil {
 		return m.PrivateKey
 	}
 	return ""
 }
 
-func (m *AuthKeyResult) GetKeyHandle() string {
+func (m *AuthKeyResponse) GetKeyHandle() string {
 	if m != nil {
 		return m.KeyHandle
 	}
 	return ""
 }
 
+type LoginTimestampResponse struct {
+	Results map[string]int64 `protobuf:"bytes,1,rep,name=results" json:"results,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+}
+
+func (m *LoginTimestampResponse) Reset()                    { *m = LoginTimestampResponse{} }
+func (m *LoginTimestampResponse) String() string            { return proto.CompactTextString(m) }
+func (*LoginTimestampResponse) ProtoMessage()               {}
+func (*LoginTimestampResponse) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{8} }
+
+func (m *LoginTimestampResponse) GetResults() map[string]int64 {
+	if m != nil {
+		return m.Results
+	}
+	return nil
+}
+
+type LoginTimestampRequest struct {
+	IdentityId []string `protobuf:"bytes,1,rep,name=identity_id,json=identityId" json:"identity_id,omitempty"`
+}
+
+func (m *LoginTimestampRequest) Reset()                    { *m = LoginTimestampRequest{} }
+func (m *LoginTimestampRequest) String() string            { return proto.CompactTextString(m) }
+func (*LoginTimestampRequest) ProtoMessage()               {}
+func (*LoginTimestampRequest) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{9} }
+
+func (m *LoginTimestampRequest) GetIdentityId() []string {
+	if m != nil {
+		return m.IdentityId
+	}
+	return nil
+}
+
 func init() {
-	proto.RegisterType((*ServiceRegistrationResult)(nil), "fident.ServiceRegistrationResult")
-	proto.RegisterType((*ServiceRegistrationPayload)(nil), "fident.ServiceRegistrationPayload")
-	proto.RegisterType((*AuthResult)(nil), "fident.AuthResult")
-	proto.RegisterType((*AuthChallengeResult)(nil), "fident.AuthChallengeResult")
-	proto.RegisterType((*AuthChallengePayload)(nil), "fident.AuthChallengePayload")
-	proto.RegisterType((*PerformAuthPayload)(nil), "fident.PerformAuthPayload")
-	proto.RegisterType((*AuthKeyRequestPayload)(nil), "fident.AuthKeyRequestPayload")
-	proto.RegisterType((*AuthKeyResult)(nil), "fident.AuthKeyResult")
+	proto.RegisterType((*ServiceRegistrationResponse)(nil), "fident.ServiceRegistrationResponse")
+	proto.RegisterType((*ServiceRegistrationRequest)(nil), "fident.ServiceRegistrationRequest")
+	proto.RegisterType((*AuthResponse)(nil), "fident.AuthResponse")
+	proto.RegisterType((*AuthChallengeResponse)(nil), "fident.AuthChallengeResponse")
+	proto.RegisterType((*AuthChallengeRequest)(nil), "fident.AuthChallengeRequest")
+	proto.RegisterType((*PerformAuthRequest)(nil), "fident.PerformAuthRequest")
+	proto.RegisterType((*AuthKeyRequest)(nil), "fident.AuthKeyRequest")
+	proto.RegisterType((*AuthKeyResponse)(nil), "fident.AuthKeyResponse")
+	proto.RegisterType((*LoginTimestampResponse)(nil), "fident.LoginTimestampResponse")
+	proto.RegisterType((*LoginTimestampRequest)(nil), "fident.LoginTimestampRequest")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -286,10 +322,14 @@ const _ = grpc.SupportPackageIsVersion4
 // Client API for Auth service
 
 type AuthClient interface {
-	CreateServiceAccount(ctx context.Context, in *ServiceRegistrationPayload, opts ...grpc.CallOption) (*ServiceRegistrationResult, error)
-	GetAuthenticationChallenge(ctx context.Context, in *AuthChallengePayload, opts ...grpc.CallOption) (*AuthChallengeResult, error)
-	GetNewAuthenticationKey(ctx context.Context, in *AuthKeyRequestPayload, opts ...grpc.CallOption) (*AuthKeyResult, error)
-	PerformAuthentication(ctx context.Context, in *PerformAuthPayload, opts ...grpc.CallOption) (*AuthResult, error)
+	// Pre-authentication methods
+	GetAuthenticationChallenge(ctx context.Context, in *AuthChallengeRequest, opts ...grpc.CallOption) (*AuthChallengeResponse, error)
+	PerformAuthentication(ctx context.Context, in *PerformAuthRequest, opts ...grpc.CallOption) (*AuthResponse, error)
+	// Account generation / management
+	GetNewAuthenticationKey(ctx context.Context, in *AuthKeyRequest, opts ...grpc.CallOption) (*AuthKeyResponse, error)
+	CreateServiceAccount(ctx context.Context, in *ServiceRegistrationRequest, opts ...grpc.CallOption) (*ServiceRegistrationResponse, error)
+	// Identity queries
+	GetLastLoginTimestamps(ctx context.Context, in *LoginTimestampRequest, opts ...grpc.CallOption) (*LoginTimestampResponse, error)
 }
 
 type authClient struct {
@@ -300,17 +340,8 @@ func NewAuthClient(cc *grpc.ClientConn) AuthClient {
 	return &authClient{cc}
 }
 
-func (c *authClient) CreateServiceAccount(ctx context.Context, in *ServiceRegistrationPayload, opts ...grpc.CallOption) (*ServiceRegistrationResult, error) {
-	out := new(ServiceRegistrationResult)
-	err := grpc.Invoke(ctx, "/fident.Auth/CreateServiceAccount", in, out, c.cc, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authClient) GetAuthenticationChallenge(ctx context.Context, in *AuthChallengePayload, opts ...grpc.CallOption) (*AuthChallengeResult, error) {
-	out := new(AuthChallengeResult)
+func (c *authClient) GetAuthenticationChallenge(ctx context.Context, in *AuthChallengeRequest, opts ...grpc.CallOption) (*AuthChallengeResponse, error) {
+	out := new(AuthChallengeResponse)
 	err := grpc.Invoke(ctx, "/fident.Auth/GetAuthenticationChallenge", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -318,8 +349,17 @@ func (c *authClient) GetAuthenticationChallenge(ctx context.Context, in *AuthCha
 	return out, nil
 }
 
-func (c *authClient) GetNewAuthenticationKey(ctx context.Context, in *AuthKeyRequestPayload, opts ...grpc.CallOption) (*AuthKeyResult, error) {
-	out := new(AuthKeyResult)
+func (c *authClient) PerformAuthentication(ctx context.Context, in *PerformAuthRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+	out := new(AuthResponse)
+	err := grpc.Invoke(ctx, "/fident.Auth/PerformAuthentication", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authClient) GetNewAuthenticationKey(ctx context.Context, in *AuthKeyRequest, opts ...grpc.CallOption) (*AuthKeyResponse, error) {
+	out := new(AuthKeyResponse)
 	err := grpc.Invoke(ctx, "/fident.Auth/GetNewAuthenticationKey", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
@@ -327,9 +367,18 @@ func (c *authClient) GetNewAuthenticationKey(ctx context.Context, in *AuthKeyReq
 	return out, nil
 }
 
-func (c *authClient) PerformAuthentication(ctx context.Context, in *PerformAuthPayload, opts ...grpc.CallOption) (*AuthResult, error) {
-	out := new(AuthResult)
-	err := grpc.Invoke(ctx, "/fident.Auth/PerformAuthentication", in, out, c.cc, opts...)
+func (c *authClient) CreateServiceAccount(ctx context.Context, in *ServiceRegistrationRequest, opts ...grpc.CallOption) (*ServiceRegistrationResponse, error) {
+	out := new(ServiceRegistrationResponse)
+	err := grpc.Invoke(ctx, "/fident.Auth/CreateServiceAccount", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *authClient) GetLastLoginTimestamps(ctx context.Context, in *LoginTimestampRequest, opts ...grpc.CallOption) (*LoginTimestampResponse, error) {
+	out := new(LoginTimestampResponse)
+	err := grpc.Invoke(ctx, "/fident.Auth/GetLastLoginTimestamps", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -339,36 +388,22 @@ func (c *authClient) PerformAuthentication(ctx context.Context, in *PerformAuthP
 // Server API for Auth service
 
 type AuthServer interface {
-	CreateServiceAccount(context.Context, *ServiceRegistrationPayload) (*ServiceRegistrationResult, error)
-	GetAuthenticationChallenge(context.Context, *AuthChallengePayload) (*AuthChallengeResult, error)
-	GetNewAuthenticationKey(context.Context, *AuthKeyRequestPayload) (*AuthKeyResult, error)
-	PerformAuthentication(context.Context, *PerformAuthPayload) (*AuthResult, error)
+	// Pre-authentication methods
+	GetAuthenticationChallenge(context.Context, *AuthChallengeRequest) (*AuthChallengeResponse, error)
+	PerformAuthentication(context.Context, *PerformAuthRequest) (*AuthResponse, error)
+	// Account generation / management
+	GetNewAuthenticationKey(context.Context, *AuthKeyRequest) (*AuthKeyResponse, error)
+	CreateServiceAccount(context.Context, *ServiceRegistrationRequest) (*ServiceRegistrationResponse, error)
+	// Identity queries
+	GetLastLoginTimestamps(context.Context, *LoginTimestampRequest) (*LoginTimestampResponse, error)
 }
 
 func RegisterAuthServer(s *grpc.Server, srv AuthServer) {
 	s.RegisterService(&_Auth_serviceDesc, srv)
 }
 
-func _Auth_CreateServiceAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ServiceRegistrationPayload)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthServer).CreateServiceAccount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/fident.Auth/CreateServiceAccount",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).CreateServiceAccount(ctx, req.(*ServiceRegistrationPayload))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Auth_GetAuthenticationChallenge_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuthChallengePayload)
+	in := new(AuthChallengeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -380,31 +415,13 @@ func _Auth_GetAuthenticationChallenge_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/fident.Auth/GetAuthenticationChallenge",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).GetAuthenticationChallenge(ctx, req.(*AuthChallengePayload))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Auth_GetNewAuthenticationKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuthKeyRequestPayload)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthServer).GetNewAuthenticationKey(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/fident.Auth/GetNewAuthenticationKey",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).GetNewAuthenticationKey(ctx, req.(*AuthKeyRequestPayload))
+		return srv.(AuthServer).GetAuthenticationChallenge(ctx, req.(*AuthChallengeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Auth_PerformAuthentication_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PerformAuthPayload)
+	in := new(PerformAuthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -416,7 +433,61 @@ func _Auth_PerformAuthentication_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: "/fident.Auth/PerformAuthentication",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).PerformAuthentication(ctx, req.(*PerformAuthPayload))
+		return srv.(AuthServer).PerformAuthentication(ctx, req.(*PerformAuthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Auth_GetNewAuthenticationKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AuthKeyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServer).GetNewAuthenticationKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/fident.Auth/GetNewAuthenticationKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServer).GetNewAuthenticationKey(ctx, req.(*AuthKeyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Auth_CreateServiceAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ServiceRegistrationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServer).CreateServiceAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/fident.Auth/CreateServiceAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServer).CreateServiceAccount(ctx, req.(*ServiceRegistrationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Auth_GetLastLoginTimestamps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoginTimestampRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AuthServer).GetLastLoginTimestamps(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/fident.Auth/GetLastLoginTimestamps",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AuthServer).GetLastLoginTimestamps(ctx, req.(*LoginTimestampRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -426,20 +497,24 @@ var _Auth_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*AuthServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "CreateServiceAccount",
-			Handler:    _Auth_CreateServiceAccount_Handler,
-		},
-		{
 			MethodName: "GetAuthenticationChallenge",
 			Handler:    _Auth_GetAuthenticationChallenge_Handler,
+		},
+		{
+			MethodName: "PerformAuthentication",
+			Handler:    _Auth_PerformAuthentication_Handler,
 		},
 		{
 			MethodName: "GetNewAuthenticationKey",
 			Handler:    _Auth_GetNewAuthenticationKey_Handler,
 		},
 		{
-			MethodName: "PerformAuthentication",
-			Handler:    _Auth_PerformAuthentication_Handler,
+			MethodName: "CreateServiceAccount",
+			Handler:    _Auth_CreateServiceAccount_Handler,
+		},
+		{
+			MethodName: "GetLastLoginTimestamps",
+			Handler:    _Auth_GetLastLoginTimestamps_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -449,38 +524,45 @@ var _Auth_serviceDesc = grpc.ServiceDesc{
 func init() { proto.RegisterFile("fident.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{
-	// 523 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x94, 0x54, 0xe1, 0x6e, 0xd3, 0x30,
-	0x10, 0xa6, 0x5d, 0x99, 0xe8, 0xd1, 0x22, 0x66, 0x5a, 0x51, 0xc2, 0x10, 0xcc, 0x08, 0x09, 0x09,
-	0xb1, 0x1f, 0xec, 0x09, 0xa6, 0x81, 0x46, 0x55, 0x69, 0x1a, 0x45, 0x9a, 0xc4, 0x0f, 0x14, 0x99,
-	0xe4, 0xd6, 0x86, 0xa6, 0x76, 0xb0, 0x9d, 0x4e, 0x91, 0x78, 0x03, 0x78, 0x0a, 0x9e, 0x8c, 0x47,
-	0x41, 0x76, 0xec, 0x34, 0x4b, 0xcb, 0x10, 0x3f, 0xef, 0xbb, 0xef, 0xbe, 0xef, 0xee, 0x7c, 0x09,
-	0xf4, 0x2e, 0x93, 0x18, 0xb9, 0x3e, 0xcc, 0xa4, 0xd0, 0x82, 0xec, 0x96, 0x11, 0xfd, 0x0c, 0x8f,
-	0x3e, 0xa2, 0x5c, 0x25, 0x11, 0x4e, 0x71, 0x96, 0x28, 0x2d, 0x99, 0x4e, 0x04, 0x9f, 0xa2, 0xca,
-	0x53, 0x4d, 0x9e, 0xc2, 0x5d, 0xcb, 0x4a, 0x74, 0x11, 0x26, 0xf1, 0xa8, 0xf5, 0xac, 0xf5, 0xb2,
-	0x3b, 0x05, 0x0f, 0x8d, 0x63, 0x43, 0x50, 0x65, 0x75, 0xb8, 0xc0, 0x62, 0xd4, 0x2e, 0x09, 0x0e,
-	0x9a, 0x60, 0x41, 0x7f, 0xb4, 0x20, 0xd8, 0xa2, 0x7f, 0xce, 0x8a, 0x54, 0xb0, 0x98, 0x1c, 0x40,
-	0xcf, 0xd7, 0x73, 0xb6, 0x44, 0xe7, 0xe0, 0x35, 0xcf, 0xd8, 0x12, 0xc9, 0x0b, 0xb8, 0xe7, 0x29,
-	0x2b, 0xe4, 0xb1, 0x90, 0xce, 0xa5, 0xef, 0xd0, 0x0b, 0x0b, 0x92, 0xe7, 0xd0, 0x57, 0x79, 0x96,
-	0x09, 0xa9, 0x43, 0x5c, 0xb2, 0x24, 0x1d, 0xed, 0x58, 0x56, 0xcf, 0x81, 0xef, 0x0c, 0x46, 0x29,
-	0xc0, 0x71, 0xae, 0xe7, 0x6e, 0xba, 0x01, 0xdc, 0xd6, 0x62, 0x81, 0xdc, 0xb9, 0x96, 0x01, 0x3d,
-	0x82, 0x07, 0x86, 0x73, 0x32, 0x67, 0x69, 0x8a, 0x7c, 0x86, 0x8e, 0xbc, 0x0f, 0xdd, 0xc8, 0x43,
-	0xae, 0x60, 0x0d, 0xd0, 0x0b, 0x18, 0x5c, 0x2b, 0xf2, 0xf3, 0xfd, 0x73, 0x81, 0x4f, 0x00, 0x32,
-	0x29, 0xbe, 0x62, 0xa4, 0x4d, 0xbe, 0x9c, 0xac, 0xeb, 0x90, 0x71, 0x4c, 0x7f, 0xb5, 0x80, 0x9c,
-	0xa3, 0xbc, 0x14, 0x72, 0x69, 0xf4, 0xff, 0x47, 0x76, 0x81, 0x45, 0x38, 0x67, 0x3c, 0x4e, 0xd1,
-	0xcb, 0x2e, 0xb0, 0x78, 0x6f, 0x81, 0x86, 0xeb, 0x4e, 0xc3, 0x95, 0xbc, 0x06, 0x52, 0x8d, 0x16,
-	0x4a, 0x54, 0x99, 0xe0, 0x0a, 0x47, 0x1d, 0x4b, 0xdb, 0x8b, 0x6a, 0x8b, 0xb1, 0x09, 0xfa, 0x1d,
-	0x86, 0xa6, 0xb9, 0x09, 0x16, 0x53, 0xfc, 0x96, 0xa3, 0xd2, 0xbe, 0xcd, 0x00, 0xee, 0xe4, 0x0a,
-	0x65, 0xed, 0x65, 0xab, 0xd8, 0xe4, 0x32, 0xa6, 0xd4, 0x95, 0x90, 0x7e, 0xec, 0x2a, 0x26, 0xaf,
-	0x60, 0x2f, 0x57, 0x6c, 0x86, 0x61, 0x8c, 0x2a, 0x92, 0x49, 0x66, 0x2e, 0xc6, 0x75, 0x79, 0xdf,
-	0x26, 0xde, 0xae, 0x71, 0xfa, 0xb3, 0x05, 0xfd, 0xca, 0xde, 0x3e, 0xd5, 0x4d, 0xb6, 0x8d, 0xcd,
-	0xb5, 0xb7, 0x5d, 0x74, 0x26, 0x93, 0x15, 0xd3, 0xe5, 0x45, 0x97, 0xae, 0xe0, 0xa0, 0x09, 0x16,
-	0x8d, 0xd5, 0x76, 0x1a, 0xab, 0x7d, 0xf3, 0xbb, 0x0d, 0x1d, 0xd3, 0x0e, 0x09, 0x61, 0x70, 0x22,
-	0x91, 0x69, 0x74, 0xe7, 0x7f, 0x1c, 0x45, 0x22, 0xe7, 0x9a, 0xd0, 0x43, 0xf7, 0x1d, 0xfe, 0xfd,
-	0xb3, 0x08, 0x0e, 0x6e, 0xe0, 0x94, 0x43, 0xd2, 0x5b, 0xe4, 0x13, 0x04, 0xa7, 0xa8, 0x8d, 0x97,
-	0x69, 0x3e, 0xb2, 0xc9, 0xea, 0x00, 0xc9, 0xbe, 0x97, 0xd8, 0x76, 0x97, 0xc1, 0xe3, 0xad, 0xd9,
-	0x4a, 0xfa, 0x03, 0x3c, 0x3c, 0x45, 0x7d, 0x86, 0x57, 0xd7, 0xd5, 0xed, 0xf8, 0xf5, 0xca, 0x8d,
-	0x27, 0x0f, 0x86, 0x1b, 0x69, 0x27, 0x39, 0x86, 0x61, 0xed, 0x90, 0xd7, 0x9a, 0x24, 0xf0, 0x15,
-	0x9b, 0x77, 0x1e, 0x90, 0xba, 0x9a, 0x97, 0xfa, 0xb2, 0x6b, 0xff, 0x60, 0x47, 0x7f, 0x02, 0x00,
-	0x00, 0xff, 0xff, 0x90, 0x1c, 0x48, 0xc6, 0xd1, 0x04, 0x00, 0x00,
+	// 629 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x8c, 0x54, 0xd1, 0x4e, 0xd4, 0x4c,
+	0x14, 0xa6, 0x94, 0x9f, 0x5f, 0x0e, 0x0b, 0xc2, 0x64, 0x81, 0x4d, 0x05, 0xc5, 0x41, 0x13, 0x12,
+	0x22, 0x17, 0x18, 0x13, 0xc2, 0x1d, 0x41, 0x82, 0x64, 0x09, 0x31, 0xab, 0x21, 0x31, 0x5e, 0x34,
+	0x63, 0x7b, 0x58, 0xea, 0xee, 0x76, 0xea, 0xcc, 0x74, 0x49, 0x9f, 0xc1, 0xc4, 0x17, 0xf0, 0xce,
+	0xe7, 0xf0, 0xe1, 0xcc, 0x74, 0x66, 0xba, 0x4b, 0xd9, 0x45, 0xef, 0x3a, 0xdf, 0xf9, 0xce, 0xf9,
+	0xce, 0x39, 0xf3, 0x4d, 0xa1, 0x71, 0x9d, 0xc4, 0x98, 0xaa, 0xfd, 0x4c, 0x70, 0xc5, 0xc9, 0xbc,
+	0x39, 0xd1, 0x10, 0x9e, 0x7c, 0x40, 0x31, 0x4c, 0x22, 0xec, 0x60, 0x37, 0x91, 0x4a, 0x30, 0x95,
+	0xf0, 0xb4, 0x83, 0x32, 0xe3, 0xa9, 0x44, 0xf2, 0x0c, 0x16, 0x4b, 0x5e, 0xa2, 0x8a, 0x30, 0x89,
+	0x5b, 0xde, 0xb6, 0xb7, 0xbb, 0xd0, 0x01, 0x07, 0x9d, 0xc7, 0x9a, 0x20, 0x4d, 0x7e, 0xd8, 0xc3,
+	0xa2, 0x35, 0x6b, 0x08, 0x16, 0x6a, 0x63, 0x41, 0xbf, 0x7b, 0x10, 0x4c, 0x54, 0xf8, 0x96, 0xa3,
+	0x54, 0xe4, 0x39, 0x34, 0x5c, 0x7e, 0xca, 0x06, 0x68, 0x15, 0x5c, 0xcd, 0x4b, 0x36, 0x40, 0xf2,
+	0x12, 0x96, 0x1d, 0x65, 0x88, 0x69, 0xcc, 0x85, 0x55, 0x59, 0xb2, 0xe8, 0x55, 0x09, 0x92, 0x1d,
+	0x58, 0x92, 0x79, 0x96, 0x71, 0xa1, 0x42, 0x1c, 0xb0, 0xa4, 0xdf, 0xf2, 0x4b, 0x56, 0xc3, 0x82,
+	0xa7, 0x1a, 0xa3, 0x2f, 0xa0, 0x71, 0x9c, 0xab, 0x9b, 0x6a, 0xbe, 0x26, 0xfc, 0xa7, 0x78, 0x0f,
+	0x53, 0xab, 0x6b, 0x0e, 0xf4, 0x0d, 0xac, 0x69, 0xd6, 0xc9, 0x0d, 0xeb, 0xf7, 0x31, 0xed, 0x62,
+	0x45, 0xdf, 0x84, 0x85, 0xc8, 0x81, 0x36, 0x65, 0x04, 0xd0, 0x2b, 0x68, 0xd6, 0xd2, 0xcc, 0x8c,
+	0x7f, 0x5d, 0xe2, 0x16, 0x40, 0x26, 0xf8, 0x57, 0x8c, 0x94, 0x8e, 0x9b, 0xe9, 0x16, 0x2c, 0x72,
+	0x1e, 0xd3, 0x5f, 0x1e, 0x90, 0xf7, 0x28, 0xae, 0xb9, 0x18, 0x98, 0xe6, 0xff, 0xbd, 0x6c, 0x0f,
+	0x8b, 0xf0, 0x86, 0xa5, 0x71, 0x1f, 0x5d, 0xd9, 0x1e, 0x16, 0xef, 0x4a, 0xa0, 0xa6, 0xea, 0xd7,
+	0x54, 0xc9, 0x2b, 0x20, 0xd5, 0x68, 0xa1, 0xb0, 0x1b, 0x68, 0xcd, 0x95, 0xb4, 0xd5, 0xa8, 0xbe,
+	0x1a, 0x9a, 0xc3, 0xb2, 0x6e, 0xae, 0x8d, 0x85, 0xeb, 0x2f, 0x80, 0x47, 0xb9, 0x44, 0x31, 0x76,
+	0xad, 0xd5, 0x59, 0xc7, 0x32, 0x26, 0xe5, 0x2d, 0x17, 0x6e, 0xde, 0xea, 0x4c, 0xf6, 0x60, 0x35,
+	0x97, 0xac, 0x8b, 0x61, 0x8c, 0x32, 0x12, 0x49, 0xa6, 0xed, 0x62, 0xdb, 0x5b, 0x29, 0x03, 0x6f,
+	0x47, 0x38, 0xfd, 0xe1, 0xc1, 0xe3, 0x4a, 0xd7, 0xde, 0xd2, 0x43, 0xc2, 0xb5, 0xa5, 0xcd, 0x4e,
+	0x32, 0x74, 0x26, 0x92, 0x21, 0x53, 0xc6, 0xd0, 0x46, 0x17, 0x2c, 0xd4, 0xc6, 0xa2, 0xb6, 0xd5,
+	0xb9, 0xda, 0x56, 0xe9, 0x4f, 0x0f, 0xd6, 0x2f, 0x78, 0x37, 0x49, 0x3f, 0x26, 0x03, 0x94, 0x8a,
+	0x0d, 0xb2, 0xaa, 0xaf, 0x53, 0xf8, 0x5f, 0xa0, 0xcc, 0xfb, 0x4a, 0xb6, 0xbc, 0x6d, 0x7f, 0x77,
+	0xf1, 0x60, 0x6f, 0xdf, 0xbe, 0xc9, 0xc9, 0x09, 0xfb, 0x1d, 0xc3, 0x3e, 0x4d, 0x95, 0x28, 0x3a,
+	0x2e, 0x37, 0x38, 0x82, 0xc6, 0x78, 0x80, 0xac, 0x80, 0xaf, 0x3b, 0x35, 0x93, 0xea, 0x4f, 0xed,
+	0xea, 0x21, 0xeb, 0xe7, 0xe6, 0xce, 0xfd, 0x8e, 0x39, 0x1c, 0xcd, 0x1e, 0x7a, 0xf4, 0x10, 0xd6,
+	0xea, 0x5a, 0x53, 0xcc, 0xe4, 0xdf, 0xdd, 0xcb, 0xc1, 0x6f, 0x1f, 0xe6, 0xf4, 0xa2, 0xc9, 0x67,
+	0x08, 0xce, 0x50, 0xe9, 0x4f, 0x1d, 0x8b, 0xca, 0xd7, 0x5c, 0x59, 0x9e, 0x6c, 0xba, 0x91, 0x26,
+	0xbd, 0x84, 0x60, 0x6b, 0x4a, 0xd4, 0x7a, 0x68, 0x86, 0xb4, 0x61, 0x6d, 0xcc, 0xe9, 0x23, 0x01,
+	0x12, 0xb8, 0xcc, 0xfb, 0x0f, 0x21, 0x68, 0x8e, 0x57, 0x1d, 0x2b, 0x76, 0x01, 0x1b, 0x67, 0xa8,
+	0x2e, 0xf1, 0xf6, 0x6e, 0x2d, 0x7d, 0x89, 0xeb, 0xe3, 0x29, 0x23, 0xcf, 0x06, 0x1b, 0xf7, 0xf0,
+	0xaa, 0x1a, 0x83, 0xe6, 0x89, 0x40, 0xa6, 0xd0, 0xfe, 0xcd, 0x8e, 0xa3, 0x88, 0xe7, 0xa9, 0x22,
+	0xd4, 0xa5, 0x4c, 0xff, 0xcb, 0x05, 0x3b, 0x0f, 0x72, 0x2a, 0x89, 0x4f, 0xb0, 0x7e, 0x86, 0xea,
+	0x82, 0x49, 0x75, 0xf7, 0x92, 0x24, 0xd9, 0x9a, 0xe6, 0x14, 0x53, 0xff, 0xe9, 0xc3, 0x46, 0xa2,
+	0x33, 0x5f, 0xe6, 0xcb, 0xdf, 0xfe, 0xeb, 0x3f, 0x01, 0x00, 0x00, 0xff, 0xff, 0x71, 0x4e, 0xb6,
+	0xda, 0x06, 0x06, 0x00, 0x00,
 }

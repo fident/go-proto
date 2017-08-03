@@ -1,12 +1,12 @@
 hash: a32d5a4c44bf0e0f6337cde63a249466440d2d52151e8f6333f79ec5c223a56b
-updated: 2017-07-27T15:46:17.401125363+01:00
+updated: 2017-08-03T10:48:16.265372318+01:00
 imports:
 - name: github.com/golang/protobuf
   version: 748d386b5c1ea99658fd69fe9f03991ce86a90c1
   subpackages:
   - proto
 - name: github.com/LucidCube/proto-fident
-  version: f805beb115658206aa44301d5cfa807efb7cda02
+  version: d36606a09898c74baf9bce66c60e40af7991711f
   repo: https://github.com/LucidCube/proto-fident.git
   vcs: git
 - name: golang.org/x/net
@@ -20,7 +20,7 @@ imports:
   - lex/httplex
   - trace
 - name: golang.org/x/text
-  version: 836efe42bb4aa16aaa17b9c155d8813d336ed720
+  version: 3bd178b88a8180be2df394a1fbb81313916f0e7b
   subpackages:
   - secure/bidirule
   - transform
