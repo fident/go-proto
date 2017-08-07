@@ -1,12 +1,12 @@
 hash: a32d5a4c44bf0e0f6337cde63a249466440d2d52151e8f6333f79ec5c223a56b
-updated: 2017-08-07T11:04:13.016439357+01:00
+updated: 2017-08-07T11:19:59.196070513+01:00
 imports:
 - name: github.com/golang/protobuf
   version: 0a4f71a498b7c4812f64969510bcb4eca251e33a
   subpackages:
   - proto
 - name: github.com/LucidCube/proto-fident
-  version: 93745133f216bba809f70d814096dfd1d0f0152b
+  version: 3824590608e075c4242db1d22ca9b7aef9e03827
   repo: https://github.com/LucidCube/proto-fident.git
   vcs: git
 - name: golang.org/x/net
