@@ -1,10 +1,11 @@
-hash: a32d5a4c44bf0e0f6337cde63a249466440d2d52151e8f6333f79ec5c223a56b
-updated: 2017-08-07T11:19:59.196070513+01:00
+hash: 57579cac34b179fc5598165e39159bfefac7baecfdd1034b51c8c29c1ce236fd
+updated: 2017-08-09T16:52:00.557204782+01:00
 imports:
 - name: github.com/golang/protobuf
   version: 0a4f71a498b7c4812f64969510bcb4eca251e33a
   subpackages:
   - proto
+  - ptypes/any
 - name: github.com/LucidCube/proto-fident
   version: 3824590608e075c4242db1d22ca9b7aef9e03827
   repo: https://github.com/LucidCube/proto-fident.git
@@ -26,15 +27,24 @@ imports:
   - transform
   - unicode/bidi
   - unicode/norm
+- name: google.golang.org/genproto
+  version: b0a3dcfcd1a9bd48e63634bd8802960804cf8315
+  subpackages:
+  - googleapis/rpc/status
 - name: google.golang.org/grpc
-  version: 777daa17ff9b5daef1cfdf915088a2ada3332bf0
+  version: b8669c35455183da6d5c474ea6e72fbf55183274
   subpackages:
   - codes
   - credentials
+  - grpclb/grpc_lb_v1
   - grpclog
   - internal
+  - keepalive
   - metadata
   - naming
   - peer
+  - stats
+  - status
+  - tap
   - transport
 testImports: []

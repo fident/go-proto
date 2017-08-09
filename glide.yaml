@@ -1,7 +1,6 @@
-package: github.com/fident/proto-go
+package: github.com/fident/go-proto
 import: 
 - package: google.golang.org/grpc
-  version: v1.0.4
 - package: github.com/LucidCube/proto-fident
   vcs: git
   repo: https://github.com/LucidCube/proto-fident.git
