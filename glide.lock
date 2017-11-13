@@ -1,17 +1,17 @@
 hash: 57579cac34b179fc5598165e39159bfefac7baecfdd1034b51c8c29c1ce236fd
-updated: 2017-08-14T13:13:09.658623106+01:00
+updated: 2017-11-13T10:52:45.201307667Z
 imports:
 - name: github.com/golang/protobuf
-  version: 1909bc2f63dc92bb931deace8b8312c4db72d12f
+  version: 8ee79997227bf9b34611aee7946ae64735e6fd93
   subpackages:
   - proto
   - ptypes/any
 - name: github.com/LucidCube/proto-fident
-  version: c89a958efdb2d3bece1f49e5b3e3fb64b1e5115e
+  version: e914eea04145e68b8007e7d90250f4849456867e
   repo: https://github.com/LucidCube/proto-fident.git
   vcs: git
 - name: golang.org/x/net
-  version: ab5485076ff3407ad2d02db054635913f017b0ed
+  version: 8b4af36cd21a1f85a7484b49feb7c79363106d8e
   subpackages:
   - context
   - http2
@@ -20,15 +20,8 @@ imports:
   - internal/timeseries
   - lex/httplex
   - trace
-- name: golang.org/x/text
-  version: b19bf474d317b857955b12035d2c5acb57ce8b01
-  subpackages:
-  - secure/bidirule
-  - transform
-  - unicode/bidi
-  - unicode/norm
 - name: google.golang.org/genproto
-  version: 09f6ed296fc66555a25fe4ce95173148778dfa85
+  version: 11c7f9e547da6db876260ce49ea7536985904c9b
   subpackages:
   - googleapis/rpc/status
 - name: google.golang.org/grpc
